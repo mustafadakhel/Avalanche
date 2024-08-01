@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.Messages
 import git4idea.GitLocalBranch
 import git4idea.GitUtil
 import git4idea.commands.Git
@@ -127,11 +126,6 @@ class EnableAutoUpdateAction : AnAction(), DumbAware {
                 Git.getInstance().fetch(repository, remote, emptyList<GitLineHandlerListener>())
             if (!fetchResult.success()) {
                 // Display the error message to the user
-                Messages.showErrorDialog(
-                    project,
-                    fetchResult.errorOutputAsJoinedString,
-                    "Fetch Failed for Branch: $branch"
-                )
                 project.showNotification("Fetch Failed for Branch: $branch", NotificationType.ERROR)
                 logger.error("Fetch failed for branch: $branch - ${fetchResult.errorOutputAsJoinedString}")
                 continue
