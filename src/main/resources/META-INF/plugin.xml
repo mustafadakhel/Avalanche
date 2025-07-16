@@ -27,6 +27,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <notificationGroup id="Branch Auto Update Notification Group" displayType="BALLOON" bundle="notification.default" key="com.mustafadakhel.avalanche.notification.group.key"/>
+        <projectConfigurable id="com.mustafadakhel.avalanche.settings" displayName="Avalanche" instance="com.mustafadakhel.avalanche.AvalancheSettingsConfigurable"/>
     </extensions>
     <actions>
         <action id="com.mustafadakhel.avalanche.EnableAutoUpdateAction"
